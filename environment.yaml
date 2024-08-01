@@ -1,0 +1,11 @@
+name: cs542
+channels:
+  - defaults
+dependencies:
+  - matplotlib=3.8.4
+  - numpy 1.26.4
+  - pandas=2.2.2
+  - pip=24.0
+  - python=3.12.4
+  - seaborn=0.13.2
+  - sqlite=3.45.3
