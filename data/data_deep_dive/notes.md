@@ -32,4 +32,15 @@
 
 ## High Level Statistics
 
-## Data COrrelation
+### Notes/Findings
+
+#### Nation Profit
+- Iraq is first, Jordan is last
+- 7.8B - 9.3B range
+
+#### Region Profit
+- America is number 1 in profit
+- Africa is the least
+- All regions have roughly similar profits of 42-44B
+
+## Data Correlation
