@@ -21,7 +21,7 @@ LOG = logging.getLogger(__name__)
 
 def get_numerical_fields() -> pd.DataFrame:
     """Gets all numerical fields and corresponding tables from TPCH."""
-    conn = sqlite3.connect('../../data/tpch.db')
+    conn = sqlite3.connect('../../../data/tpch.db')
 
     tables = pd.read_sql_query(
         "SELECT name FROM sqlite_master WHERE type='table'", conn

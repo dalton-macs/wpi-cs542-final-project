@@ -79,7 +79,7 @@ def plot_distribution(df: pd.DataFrame,
 def generate_numerical_statistics(save_path: str,
                                   make_plots: bool = False) -> pd.DataFrame:
 
-    conn = sqlite3.connect('../../data/tpch.db')
+    conn = sqlite3.connect('../../../data/tpch.db')
 
     numerical_fields_df = get_numerical_fields()
 
@@ -114,5 +114,5 @@ def generate_numerical_statistics(save_path: str,
 
 if __name__ == "__main__":
     generate_numerical_statistics(save_path = 
-                                  '../../data/data_deep_dive/numerical_fields_statistics.csv',
+                                  '../../../data/data_deep_dive/numerical_data_columns/numerical_fields_statistics.csv',
                                   make_plots = True)
