@@ -33,14 +33,40 @@
 ## High Level Statistics
 
 ### Notes/Findings
+- **General**
+    - Profit formula below (from Q9 in TPCH doc)
+       ```sql
+        SUM(L.L_EXTENDEDPRICE * (1 - L.L_DISCOUNT) - (PS.PS_SUPPLYCOST * L.L_QUANTITY))
+       ```
+    - For customer spend, used O.O_TOTALPRICE
+    - O.O_TOTALPRICE is calculated from lineitem as follows
+        ```sql
+        SUM((L_EXTENDEDPRICE * (1- L_DISCOUNT)) * (1 + L_TAX))
+        ```
+- **Nation Profit**
+    - Iraq is first, Jordan is last
+    - 5.1B - 6.1B range
+- **Region Profit**
+    - America is number 1 in profit
+    - Africa is the least
+    - All regions have roughly similar profits of 27.8-28.9B
+- **Which customers spent the most?**
+    - 143500, 95257, 87115, 131113, 103834
+- **Which nations have the highest order total?**
+    - France, Indonesia, Russia, Mozambique, Jordan
+- **Which regions have the highest order total?**
+    - Europe, Asia, America, Africa, Middle East
+- **Which customers order the most diversely (suppliers in many nations)?**
+    - 143500, 95257, 87115, 103834, 134380 all ordered from 25 nations with average nation spend price of > $250K
+- **Which customers order the most diversely (suppliers in many regions)?**
+    - 143500, 95257, 87115, 131113, 103834 all ordered from 5 regions with average nation spend price of > $1.25M
+- **Which market segment had the most orders?**
+    - Building, household, furniture, machinery, automobile
+    - All roughly the same number of orders, around 300K
+- **Which market segment spent the most (average order price)?**
+    - automobile, furniture, household, machinery, building
+    - all roughly same average order price of $151K, yet order changed from above
 
-#### Nation Profit
-- Iraq is first, Jordan is last
-- 7.8B - 9.3B range
 
-#### Region Profit
-- America is number 1 in profit
-- Africa is the least
-- All regions have roughly similar profits of 42-44B
 
 ## Data Correlation
