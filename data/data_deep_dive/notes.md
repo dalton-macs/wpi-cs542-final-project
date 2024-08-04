@@ -30,8 +30,8 @@
 
 ## Query Behavior
 
-## High Level Statistics
 
+## High Level Statistics
 ### Notes/Findings
 - **General**
     - Profit formula below (from Q9 in TPCH doc)
@@ -68,5 +68,12 @@
     - all roughly same average order price of $151K, yet order changed from above
 
 
-
 ## Data Correlation
+### Notes/Findings
+- In order to run correlations, the data needed to be the same length
+    1. Selected data from all numerical columns
+    2. Found field with lowest number of datapoints
+    3. Randomly select the min value from all other fields to approximate the data distribution
+    4. Run correlations
+- Only L_QUANTITY and L_EXTENDEDPRICE seem correlated (highly)
+    - makes sense... as quantity increases, so does overal price
