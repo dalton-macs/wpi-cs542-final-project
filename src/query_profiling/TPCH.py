@@ -63,3 +63,26 @@ class TPCHQueries:
                           "ORDER BY o_orderpriority", self.conn)
         end = time.time()
         return res, end - start
+
+    def q5(self) -> (pd.DataFrame, float):
+        start = time.time()
+        res = pd.read_sql("SELECT n_name, sum(l_extendedprice * (1 - l_discount)) as revenue "
+                          "FROM customer, orders, lineitem, supplier, nation, region "
+                          "WHERE c_custkey = o_custkey and l_orderkey = o_orderkey and l_suppkey = s_suppkey "
+                          "and c_nationkey = s_nationkey and s_nationkey = n_nationkey and n_regionkey = r_regionkey "
+                          "and r_name = 'ASIA' and o_orderdate >= date('1994-01-01') and o_orderdate < date('1994-01-01', '1 year') "
+                          "GROUP BY n_name "
+                          "ORDER BY revenue DESC", self.conn)
+        end = time.time()
+        return res, end - start
+
+    def q6(self) -> (pd.DataFrame, float):
+        start = time.time()
+        res = pd.read_sql("SELECT sum(l_extendedprice * l_discount) as revenue "
+                          "FROM lineitem "
+                          "WHERE l_shipdate >= date('1994-01-01') "
+                          "AND l_shipdate < date('1994-01-01', '1 year') "
+                          "AND l_discount BETWEEN 0.05 AND 0.07 "
+                          "AND l_quantity < 24", self.conn)
+        end = time.time()
+        return res, end - start
